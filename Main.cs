@@ -12,11 +12,12 @@ namespace KitchenICantSeeYourOrder
     {
         public const string MOD_GUID = $"IcedMilo.PlateUp.{MOD_NAME}";
         public const string MOD_NAME = "I Can't See Your Order!";
-        public const string MOD_VERSION = "0.1.0";
+        public const string MOD_VERSION = "0.1.1";
 
         internal const string TRANSITION_TIME_ID = "transitionTime";
 
         internal const string EXPANDED_SIZE_ID = "expandedSize";
+        internal const string MINIMIZED_SIZE_ID = "minimizedSize";
 
         internal static PreferenceSystemManager PrefManager;
 
@@ -41,8 +42,14 @@ namespace KitchenICantSeeYourOrder
                 .AddOption<float>(
                     EXPANDED_SIZE_ID,
                     2f,
-                    Enumerable.Range(11, 20).Select(x => x / 10f).ToArray(),
-                    Enumerable.Range(11, 20).Select(x => $"{x * 10}%").ToArray())
+                    Enumerable.Range(1, 25).Select(x => x / 10f).ToArray(),
+                    Enumerable.Range(1, 25).Select(x => $"{x * 10}%").ToArray())
+                .AddLabel("Minimized Size")
+                .AddOption<float>(
+                    MINIMIZED_SIZE_ID,
+                    1f,
+                    Enumerable.Range(1, 25).Select(x => x / 10f).ToArray(),
+                    Enumerable.Range(1, 25).Select(x => $"{x * 10}%").ToArray())
                 .AddSpacer()
                 .AddSpacer();
 

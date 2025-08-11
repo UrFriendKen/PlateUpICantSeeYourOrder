@@ -71,7 +71,7 @@ namespace KitchenICantSeeYourOrder
                 _drawnItems = drawnItems;
             }
             float interpotationRatio = Mathf.Clamp01(Time.deltaTime / Main.PrefManager.Get<float>(Main.TRANSITION_TIME_ID));
-            Vector3 targetScale = (ShouldExpand ? Main.PrefManager.Get<float>(Main.EXPANDED_SIZE_ID) : 1f) * DefaultScale;
+            Vector3 targetScale = Main.PrefManager.Get<float>(ShouldExpand? Main.EXPANDED_SIZE_ID : Main.MINIMIZED_SIZE_ID) * DefaultScale;
             for (int i = 0; i < _drawnItems.Length; i++)
             {
                 GameObject obj = _drawnItems[i].Object;
